@@ -1,0 +1,50 @@
+1. File client/speech/mic.py
+	Comment line : 37 // disable API
+	Comment line : 209 -> 2012 // disable get UID from conf cache
+	SET : self.account_id = '0' on line 208
+2. File client/speech/listener.py
+	Line 258 : config LANG  pocketsphinx
+3 . File client/speech/listener.py
+	Line 244 : emit hotword
+4. File client/speech/hotword_factory.py		
+	Line 68 : config phonemes pocketsphinx
+5 File configuration/config.py
+	Disable remote config
+	Renew code
+	Comment # REMOTE_CONFIG = "mycroft.ai"
+	Comment # RemoteConf Class
+6. File mycroft.conf 
+	Edit lang for use STT , TTS, dialog , dialog skill
+7. File client/speech/main.py
+	Line 21 : Comment # from mycroft.identity import IdentityManager
+	Line 102 - 103 : # def handle_paired(event):
+					 #     IdentityManager.update(event.data)
+	Line 156 : Comment # ws.on("mycroft.paired", handle_paired)
+// Skill Folder Edited Start
+8  File skills/main.py
+	Remove all API form mycroft API 
+	Line 29 : Comment 
+	  from mycroft.api import is_paired, BackendDown
+	Line 107 - 110 : comment 
+	  if is_paired():
+            # Skip the sync message when unpaired because the prompt to go to
+            # home.mycrof.ai will be displayed by the pairing skill
+            enclosure.mouth_text(dialog.get("message_synching.clock"))
+
+	Line : 147 - 161 : comment pair check:
+	 try:
+            if not is_paired(ignore_errors=False):
+                payload = {
+                    'utterances': ["pair my device"],
+                    'lang': "en-us"
+                }
+                ws.emit(Message("recognizer_loop:utterance", payload))
+            else:
+                from mycroft.api import DeviceApi
+                api = DeviceApi()
+                api.update_version()
+        except BackendDown:
+            data = {'utterance': dialog.get("backend.down")}
+            ws.emit(Message("speak", data))
+            ws.emit(Message("backend.down"))
+
