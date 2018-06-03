@@ -27,3 +27,26 @@ B4 : sudo ./start-mycroft.sh debug
  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  See the License for the specific language governing permissions and
  limitations under the License.
+# Cài đặt alase và asound conf
+ 
+ B1 : sudo nano /etc/asound.conf
+ B2 : Type 
+ pcm.!default {
+  type asym
+  capture.pcm "mic"
+  playback.pcm "speaker"
+}
+pcm.mic {
+  type plug
+  slave {
+    pcm "hw:1,0"
+  }
+}
+pcm.speaker {
+  type plug
+  slave {
+    pcm "hw:0,0"
+  }
+}
+B3 : Ctrl + X and Y
+  
