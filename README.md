@@ -30,23 +30,40 @@ B4 : sudo ./start-mycroft.sh debug
 # Cài đặt alase và asound conf
  
  B1 : sudo nano /etc/asound.conf
+ 
  B2 : Type 
+ 
  pcm.!default {
+ 
   type asym
+  
   capture.pcm "mic"
+  
   playback.pcm "speaker"
+  
 }
+
 pcm.mic {
+
   type plug
+  
   slave {
+  
     pcm "hw:1,0"
   }
+  
 }
+
 pcm.speaker {
+
   type plug
+  
   slave {
+  
     pcm "hw:0,0"
   }
+  
 }
+
 B3 : Ctrl + X and Y
   
