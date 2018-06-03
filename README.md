@@ -27,7 +27,7 @@ B4 : sudo ./start-mycroft.sh debug
  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  See the License for the specific language governing permissions and
  limitations under the License.
-# Cài đặt alase và asound conf
+# Cài đặt alasa và asound conf
  
  B1 : sudo nano /etc/asound.conf
  
