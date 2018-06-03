@@ -10,6 +10,8 @@ B3 : sudo bash ./dev_setup.sh
 
 B4 : sudo ./start-mycroft.sh debug
       # Bản quyền sử dụng
+      
+      
  Copyright 2017 Mycroft AI Inc.
 
  Licensed under the Apache License, Version 2.0 (the "License");
