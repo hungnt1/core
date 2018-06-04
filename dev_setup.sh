@@ -56,7 +56,7 @@ show_help() {
 }
 
 opt_skipmimic=true
-opt_allowroot=false
+opt_allowroot=true
 
 for var in "$@"
 do
