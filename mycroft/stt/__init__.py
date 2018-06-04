@@ -108,7 +108,7 @@ class WITSTT(TokenSTT):
 
     def execute(self, audio, language=None):
         LOG.warning("WITSTT language should be configured at wit.ai settings.")
-        return self.recognizer.recognize_wit(audio, self.token)
+        return self.recognizer.recognize_wit(audio, "PYYFZPFANLJINPJO23RUR2TKGPLVRCXO")
 
 
 class IBMSTT(BasicSTT):
