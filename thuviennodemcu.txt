@@ -1,0 +1,7 @@
+danh sach thu vien cho nodemcu:
+
++ PubSubClient
++ DNSServer
++ ESP8266WebServer
++ WiFiManager
++ ESP8266mDNS
