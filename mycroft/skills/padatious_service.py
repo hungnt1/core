@@ -18,7 +18,13 @@ from time import time as get_time, sleep
 
 from os.path import expanduser, isfile
 from pkg_resources import get_distribution
-
+from mycroft.util import play_wav
+from mycroft.util import (
+    check_for_signal,
+    get_ipc_directory,
+    resolve_resource_file,
+    play_wav
+)
 from mycroft.configuration import Configuration
 from mycroft.messagebus.message import Message
 from mycroft.skills.core import FallbackSkill
@@ -70,6 +76,9 @@ class PadatiousService(FallbackSkill):
         LOG.info('Training...')
         self.container.train(single_thread=single_thread)
         LOG.info('Training complete.')
+        self.load_config = Configuration.get()
+        file = resolve_resource_file("snd/wellcome.WAV")
+        play_wav(file)
 
         self.finished_training_event.set()
         self.finished_initial_train = True
