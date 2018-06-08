@@ -59,7 +59,7 @@ void setup()
       }
     
     Serial.println("da ket noi MQTT");  
-    MQTT.subscribe("đèn"); MQTT.subscribe("quạt");
+    MQTT.subscribe("đèn"); MQTT.subscribe("hello");
     pinMode(5, OUTPUT);
     digitalWrite(5, HIGH);
     pinMode(16, OUTPUT);
@@ -68,15 +68,12 @@ void setup()
  }
 void loop() 
   {  
-     Serial.println(digitalRead(0));
-    if (digitalRead(0)== 0) 
-    {WiFi.disconnect(true);
-     ESP.reset();
-     Serial.println("digital hight");
+    if (digitalRead(0) == 0) 
+    {
+    WiFi.disconnect();
+    delay(3000);
+    setup();
      }
-    else {
-    Serial.println("digial low");
-      }
     if (!MQTT.connect("ESP"))
     {MQTT.connect("ESP");}
  
@@ -84,6 +81,5 @@ void loop()
   // put your setup code here, to run once:
 
 }
-
 
 
