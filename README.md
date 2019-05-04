@@ -32,7 +32,7 @@ B4 : sudo ./start-mycroft.sh debug
  B1 : sudo nano /etc/asound.conf
  
  B2 : Type 
- 
+ ```
  pcm.!default {
  
   type asym
@@ -64,6 +64,6 @@ pcm.speaker {
   }
   
 }
-
+```
 B3 : Ctrl + X and Y
   
